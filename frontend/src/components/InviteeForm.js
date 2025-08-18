@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { Context } from "../App";
 
 function InviteeForm(){
 
@@ -35,9 +36,10 @@ function InviteeForm(){
         })
         .then(res => console.log("Success:", res.data))
         .catch(err => console.error("Error:", err.response ? err.response.data : err.message));
+        window.location.reload();
     }
 
-    const formStyle = "flex flex-col p-6 bg-purple-300 w-[50%] mx-auto";
+    const formStyle = "fixed left-0 top-20 w-[25%] flex flex-col mx-2";
     const labelStyle = "text-xl";
     const fieldStyle = "m-2 p-2 bg-gray-400";
     const buttonStyle = "w-[100px] p-2 bg-yellow-600 mt-3";
