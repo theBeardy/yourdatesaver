@@ -20,5 +20,6 @@ from app.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', ReactView.as_view(), name="guest_list")
+    path('', ReactView.as_view(), name="guest_list"),
+    path('api/invitees/', ReactView.as_view(), name="invitee-api"),
 ]

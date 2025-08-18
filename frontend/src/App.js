@@ -1,7 +1,5 @@
 import axios from "axios";
 import React from "react";
-import NavBar from "./components/NavBar";
-import InviteeForm from "./components/InviteeForm";
 
 class App extends React.Component {
 
