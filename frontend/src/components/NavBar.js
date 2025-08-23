@@ -1,7 +1,7 @@
 function NavBar(){
 
     const navBar = "flex justify-between bg-gray-500"
-    const anchorNav = "mx-auto bg-gray-400 p-2 hover:bg-teal-400 w-full text-center"
+    const anchorNav = "mx-auto bg-gray-400 p-2 hover:bg-gray-600 hover:text-white w-full text-center"
     
     return <div>
         <header>

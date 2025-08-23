@@ -39,24 +39,25 @@ function InviteeForm(){
         window.location.reload();
     }
 
-    const formStyle = "fixed left-0 top-20 w-[25%] flex flex-col mx-2";
-    const labelStyle = "text-xl";
-    const fieldStyle = "m-2 p-2 bg-gray-400";
-    const buttonStyle = "w-[100px] p-2 bg-yellow-600 mt-3";
+    const formStyle = "w-auto flex flex-col gap-4 mx-2 p-4 bg-gray-300";
+    const labelStyle = "text-xl font-bold m-3";
+    const fieldStyle = "bg-gray-400 w-72 p-4 text-lg font-medium m-3 h-[3.25rem] rounded-md";
+    const buttonStyle = "w-24 h-12 m-4 bg-gray-800 text-white rounded-4xl self-end";
 
     return (
         <div>
             <form className={formStyle} onSubmit={handleSubmit} action="">
                 <h1 className="text-2xl text-center font-bold mb-2">Add someone to the invite list.</h1>
-                <label className={labelStyle} htmlFor="invitee">Enter Name:
+                <label className={labelStyle} htmlFor="invitee">
                     <input 
                         className={fieldStyle} 
                         type="text" 
+                        placeholder="Enter Name"
                         value={invitee}
                         onChange={(e) => setInvitee(e.target.value)}
                     />
                 </label>
-                <label className={labelStyle} htmlFor="invite_type">Invite Type
+                <label className={labelStyle} htmlFor="invite_type">
                     <select 
                         className={fieldStyle}
                         value={invite_type}

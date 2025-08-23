@@ -20,43 +20,38 @@ class InviteeList extends React.Component {
     })
   }
 
-  divBox = "w-[50%] text-center bg-blue-400 rounded-md mx-auto my-4"
-  anchorNav = "mx-auto bg-gray-400 p-2 hover:bg-teal-400 w-full text-center"
-  headerClass = "text-3xl"
-  textClass = "text-2xl"
+  divBox = "flex flex-col w-[50%] bg-gray-400 rounded-md mx-auto my-4"
+  namesGrid = "grid grid-cols-2 gap-2 p-8 w-[100%]"
+  gridTextAlign = "odd:text-left even:text-right"
+  headerClass = "mt-4 text-3xl text-center"
+  textClass = "mx-8 text-2xl"
   
   render() {
     return (
       <div>
         <div className={this.divBox}>
           <h1 className={this.headerClass}>In-Person Invitees</h1>
-          {this.state.details.map((output, id) => (
-            <div key={id}>
-              <div>
-                {output.invite_type === "In-Person" ? 
-                  <div>
-                    <h2 className={this.textClass}>{output.invitee}</h2>
-                    <h3>{output.invite_type}</h3>
-                  </div>
-                : ''}
-              </div>
-            </div>
-          ))}
+          <div className={this.namesGrid}>
+            {this.state.details.map((output, id) => (
+              output.invite_type === "In-Person" && (
+                <div key={id} className={this.gridTextAlign}>
+                  <h2 className={this.textClass}>{output.invitee}</h2>
+                </div>
+              )
+            ))}
+          </div>
         </div>
         <div className={this.divBox}>
           <h1 className={this.headerClass}>Live-Stream Invitees</h1>
-          {this.state.details.map((output, id) => (
-            <div key={id}>
-              <div>
-                {output.invite_type !== "In-Person" ? 
-                  <div>
-                    <h2 className={this.textClass}>{output.invitee}</h2>
-                    <h3>{output.invite_type}</h3>
-                  </div>
-                : ''}
-              </div>
-            </div>
-          ))}
+          <div className={this.namesGrid}>
+            {this.state.details.map((output, id) => (
+              output.invite_type !== "In-Person" && (
+                <div key={id} className={this.gridTextAlign}>
+                  <h2 className={this.textClass}>{output.invitee}</h2>
+                </div>
+              )
+            ))}
+          </div>
         </div>
       </div>
     )
