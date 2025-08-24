@@ -6,7 +6,7 @@ from rest_framework.response import Response
 
 # Create your views here.
 class InviteeViewSet(viewsets.ModelViewSet):
-    queryset = React.objects.all()
+    queryset = React.objects.all().order_by('invitee')
     serializer_class = ReactSerializer
     
 class ReactView(generics.ListCreateAPIView):
