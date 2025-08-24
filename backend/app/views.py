@@ -1,10 +1,14 @@
 from django.shortcuts import render
-from rest_framework import generics
+from rest_framework import generics, viewsets
 from . models import *
 from . serializer import *
 from rest_framework.response import Response
 
 # Create your views here.
+class InviteeViewSet(viewsets.ModelViewSet):
+    queryset = React.objects.all()
+    serializer_class = ReactSerializer
+    
 class ReactView(generics.ListCreateAPIView):
     queryset = React.objects.all()
     serializer_class = ReactSerializer

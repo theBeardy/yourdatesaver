@@ -1,14 +1,20 @@
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
+import { Modal } from "./Modal";
+import InviteeEditForm from "./InviteeEditForm";
 
 class InviteeList extends React.Component {
 
-  state = { details: [], }
+  state = { 
+    details: [], 
+    showModal: false,
+    currentInvitee: null
+  }
 
   componentDidMount() {
 
     let data;
-    axios.get('http://localhost:8000')
+    axios.get('http://localhost:8000/api/invitees')
     .then(res => {
       data = res.data;
       this.setState({
@@ -22,9 +28,9 @@ class InviteeList extends React.Component {
 
   divBox = "flex flex-col w-[50%] bg-gray-400 rounded-md mx-auto my-4"
   namesGrid = "grid grid-cols-2 gap-2 p-8 w-[100%]"
-  gridTextAlign = "odd:text-left even:text-right"
+  gridTextAlign = "h-10 bg-gray-200 flex justify-between items-center rounded-sm odd:text-left even:text-right"
   headerClass = "mt-4 text-3xl text-center"
-  textClass = "mx-8 text-2xl"
+  textClass = "mx-4 text-2xl"
   
   render() {
     return (
@@ -35,7 +41,26 @@ class InviteeList extends React.Component {
             {this.state.details.map((output, id) => (
               output.invite_type === "In-Person" && (
                 <div key={id} className={this.gridTextAlign}>
-                  <h2 className={this.textClass}>{output.invitee}</h2>
+                    <h2 className={this.textClass}>{output.invitee}</h2>
+                    <Modal>
+                      <InviteeEditForm
+                        inviteeData = {output}
+                        onClose={() => this.setState({ showModal: false })}
+                        onUpdated={(updated) => {
+                          this.setState(prev => ({
+                            details: prev.details.map(item =>
+                              item.id === updated.id ? updated : item
+                            )
+                          }))
+                        }}
+                      />
+                    </Modal>
+                    {/* <button
+                      onClick={() => this.setState({ showModal: true, currentInvitee: output })} 
+                      className="mx-2"
+                    >
+                      <i class="fa-solid fa-pen-to-square text-gray-400 hover:text-gray-600"></i>
+                    </button> */}
                 </div>
               )
             ))}
@@ -48,6 +73,19 @@ class InviteeList extends React.Component {
               output.invite_type !== "In-Person" && (
                 <div key={id} className={this.gridTextAlign}>
                   <h2 className={this.textClass}>{output.invitee}</h2>
+                  <Modal>
+                      <InviteeEditForm
+                        inviteeData = {output}
+                        onClose={() => this.setState({ showModal: false })}
+                        onUpdated={(updated) => {
+                          this.setState(prev => ({
+                            details: prev.details.map(item =>
+                              item.id === updated.id ? updated : item
+                            )
+                          }))
+                        }}
+                      />
+                    </Modal>
                 </div>
               )
             ))}
