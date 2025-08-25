@@ -17,12 +17,12 @@ const ModalBody = ({ onClick, children }) => {
     </div>;
 }
 
-export const Modal = ({ children }) => {
+export const Modal = ({ trigger, children }) => {
     const [shouldShow, setShouldShow] = useState(false);
 
     return (
         <>
-            <button className={openButton} onClick={() => setShouldShow(true)}><i class="fa-solid fa-circle-plus fa-2xl scale-125"></i></button>
+            <button className={openButton} onClick={() => setShouldShow(true)}>{ trigger }</button>
             {shouldShow && (
                 <ModalBackground onClick={() => setShouldShow(false)}>
                     <button className={closeButton} onClick={() => setShouldShow(false)}><i class="fa-solid fa-circle-xmark fa-rotate-90 fa-2xl scale-125 text-white"></i></button>

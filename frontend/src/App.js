@@ -14,7 +14,7 @@ function App(){
   return (
     <>
       <NavBar />
-      <Modal>
+      <Modal trigger={<i class="fa-solid fa-circle-plus fa-2xl scale-125"></i>}>
         <InviteeForm/>
       </Modal>
       <InviteeList />

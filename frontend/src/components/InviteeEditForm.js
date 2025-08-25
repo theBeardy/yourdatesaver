@@ -59,7 +59,7 @@ function InviteeEditForm({ inviteeData, onClose, onUpdated }) {
     }
 
     const formStyle = "w-auto flex flex-col gap-4 mx-2 p-4 bg-gray-300";
-    const labelStyle = "text-xl font-bold m-3";
+    const labelStyle = "text-xl font-bold";
     const fieldStyle = "bg-gray-400 w-72 p-4 text-lg font-medium m-3 h-[3.25rem] rounded-md";
     const buttonStyle = "w-24 h-12 m-4 bg-gray-800 text-white rounded-4xl self-end";
 
@@ -86,9 +86,10 @@ function InviteeEditForm({ inviteeData, onClose, onUpdated }) {
                         <option value="Live-Stream">Live-Stream</option>
                     </select>
                 </label>
-
-                <button onClick={deleteEntry} className={buttonStyle}>Delete</button>
-                <button className={buttonStyle} type="submit">Save</button>
+                <div className="flex justify-between">
+                    <button className={buttonStyle} type="submit">Save</button>
+                    <button onClick={deleteEntry} className={buttonStyle}>Delete</button>
+                </div>
             </form>
         </div>
     )

@@ -42,7 +42,7 @@ class InviteeList extends React.Component {
               output.invite_type === "In-Person" && (
                 <div key={id} className={this.gridTextAlign}>
                     <h2 className={this.textClass}>{output.invitee}</h2>
-                    <Modal>
+                    <Modal trigger={<i class="fa-solid fa-pen-to-square text-gray-400"></i>}>
                       <InviteeEditForm
                         inviteeData = {output}
                         onClose={() => this.setState({ showModal: false })}
@@ -59,7 +59,7 @@ class InviteeList extends React.Component {
                       onClick={() => this.setState({ showModal: true, currentInvitee: output })} 
                       className="mx-2"
                     >
-                      <i class="fa-solid fa-pen-to-square text-gray-400 hover:text-gray-600"></i>
+                      <i class="fa-solid fa-pen-to-square text-gray-400 text-gray-400 hover:text-gray-600"></i>
                     </button> */}
                 </div>
               )
@@ -73,7 +73,7 @@ class InviteeList extends React.Component {
               output.invite_type !== "In-Person" && (
                 <div key={id} className={this.gridTextAlign}>
                   <h2 className={this.textClass}>{output.invitee}</h2>
-                  <Modal>
+                  <Modal trigger={<i class="fa-solid fa-pen-to-square text-gray-400"></i>}>
                       <InviteeEditForm
                         inviteeData = {output}
                         onClose={() => this.setState({ showModal: false })}
