@@ -58,7 +58,7 @@ function InviteeEditForm({ inviteeData, onClose, onUpdated }) {
         window.location.reload();
     }
 
-    const formStyle = "w-auto flex flex-col gap-4 mx-2 p-4 bg-gray-300";
+    const formStyle = "w-auto flex flex-col gap-4 mx-2 p-4 bg-gray-200";
     const labelStyle = "text-xl font-bold";
     const fieldStyle = "bg-gray-400 w-72 p-4 text-lg font-medium m-3 h-[3.25rem] rounded-md";
     const buttonStyle = "w-24 h-12 m-4 bg-gray-800 text-white rounded-4xl self-end";

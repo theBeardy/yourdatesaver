@@ -3,7 +3,22 @@
 @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville:regular,italic,700);
 
 @theme {
-  --font-serif: Libre Baskerville, serif; 
+  --font-serif: Libre Baskerville, serif;
+  --color-dark-bg: #38040E;
+  --color-dark-2: #640D14;
+  --color-dark-3: #800E13;
+  --color-dark-4: #95232A;
+  --color-accent-dark: #E22030;
+  --color-light-bg: #F6F7F4;
+  --color-light-2: #E1E5E1;
+  --color-light-3: #CBD3CF;
+  --color-light-4: #A8B4AC;
+  --color-accent-light: #5E8370;
+  --color-light-text: #1F2A23;
+  --color-light-text-2: #3F4F45;
+  --color-dark-text: #FBDADE;
+  --color-dark-text-2: #F0A8AB;
+  --color-text-error: red;
 }
 
 body {
