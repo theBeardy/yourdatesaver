@@ -28,7 +28,7 @@ class InviteeList extends React.Component {
 
   divBox = "flex flex-col w-[50%] bg-gray-400 rounded-md mx-auto my-4"
   namesGrid = "grid grid-cols-2 gap-2 p-8 w-[100%]"
-  gridTextAlign = "h-10 bg-gray-200 flex justify-between items-center rounded-sm odd:text-left even:text-right"
+  gridTextAlign = "h-10 bg-gray-300 flex justify-between items-center rounded-sm odd:text-left even:text-right"
   headerClass = "mt-4 text-3xl text-center"
   textClass = "mx-4 text-2xl"
   
@@ -42,7 +42,7 @@ class InviteeList extends React.Component {
               output.invite_type === "In-Person" && (
                 <div key={id} className={this.gridTextAlign}>
                     <h2 className={this.textClass}>{output.invitee}</h2>
-                    <Modal trigger={<i class="fa-solid fa-pen-to-square text-gray-400"></i>}>
+                    <Modal trigger={<i class="fa-solid fa-pen-to-square text-gray-600"></i>}>
                       <InviteeEditForm
                         inviteeData = {output}
                         onClose={() => this.setState({ showModal: false })}
@@ -73,19 +73,19 @@ class InviteeList extends React.Component {
               output.invite_type !== "In-Person" && (
                 <div key={id} className={this.gridTextAlign}>
                   <h2 className={this.textClass}>{output.invitee}</h2>
-                  <Modal trigger={<i class="fa-solid fa-pen-to-square text-gray-400"></i>}>
-                      <InviteeEditForm
-                        inviteeData = {output}
-                        onClose={() => this.setState({ showModal: false })}
-                        onUpdated={(updated) => {
-                          this.setState(prev => ({
-                            details: prev.details.map(item =>
-                              item.id === updated.id ? updated : item
-                            )
-                          }))
-                        }}
-                      />
-                    </Modal>
+                  <Modal trigger={<i class="fa-solid fa-pen-to-square text-gray-600"></i>}>
+                    <InviteeEditForm
+                      inviteeData = {output}
+                      onClose={() => this.setState({ showModal: false })}
+                      onUpdated={(updated) => {
+                        this.setState(prev => ({
+                          details: prev.details.map(item =>
+                            item.id === updated.id ? updated : item
+                          )
+                        }))
+                      }}
+                    />
+                  </Modal>
                 </div>
               )
             ))}
