@@ -3,7 +3,7 @@ import { useState } from "react";
 const openButton = "w-12 h-12 m-4";
 const closeButton = "w-12 h-12 mx-4 mt-64 self-start";
 const modalBG = "fixed inset-0 z-50 w-[100vw] overflow-auto bg-gray-800/50 flex justify-center items-center";
-const modalStyle = "bg-white max-h-[500px] p-[20px] flex justify-start"
+const modalStyle = "bg-gray-200 max-h-[500px] p-[20px] flex justify-start"
 
 const ModalBackground = ({ onClick, children }) => {
     return <div onClick={onClick} className={modalBG}>
@@ -25,7 +25,7 @@ export const Modal = ({ trigger, children }) => {
             <button className={openButton} onClick={() => setShouldShow(true)}>{ trigger }</button>
             {shouldShow && (
                 <ModalBackground onClick={() => setShouldShow(false)}>
-                    <button className={closeButton} onClick={() => setShouldShow(false)}><i class="fa-solid fa-circle-xmark fa-rotate-90 fa-2xl scale-125 text-white"></i></button>
+                    <button className={closeButton} onClick={() => setShouldShow(false)}><i class="fa-solid fa-circle-xmark fa-rotate-90 fa-2xl scale-125 text-gray-200"></i></button>
                     <ModalBody onClick={(e) => e.stopPropagation()}>
                         {children}
                     </ModalBody>
